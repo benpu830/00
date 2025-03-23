@@ -1,6 +1,7 @@
 var rule = {
     title:'Missav',
     host:'https://missav.ws',
+	host_backup: ['https://missav.ai', 'https://missav.live'], // 備用域名
 	searchUrl:'/cn/search/**',
     url:'/cn/fyclass?page=fypage',
     headers:{
