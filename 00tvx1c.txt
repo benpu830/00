@@ -46,6 +46,8 @@
 {"key":"Hanime","name":"🐞Hanime","type":3,"api":"csp_Hanime","searchable":1,"quickSearch":1,"filterable":1},
 {"key":"Jable","name":"🐞Jable","type":3,"api":"csp_Jable","searchable":1,"quickSearch":1,"filterable":1},
 {"key":"MissAV","name":"🐞MissAV","type":3,"api":"csp_Miss","searchable":1,"quickSearch":1,"filterable":1},
+{"key": "dr_Missav", "name": "MissAV(drpy)", "type": 3, "api": "https://github.com/c120487/dr_py/raw/master/libs/drpy.min.js", "searchable": 2, "quickSearch": 1, "filterable": 1, "ext": "https://raw.githubusercontent.com/benpu830/00/main/ext/Missav.js"},
+    // 其他站點根據需要更新
 {"key":"Supjav","name":"🐞Supjav","type":3,"api":"csp_Supjav","searchable":1,"quickSearch":1,"filterable":1},
 
 //
