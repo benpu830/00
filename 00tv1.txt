@@ -1,45 +1,83 @@
 {
-  "spider": "https://gh-proxy.com/https://github.com/c120487/00/raw/main/jar/xc0126.jar",
-  "wallpaper": "https://t.mwm.moe/ycy",
+  "sites": [
+    {
+      "key": "drpy_js_朱古力",
+      "name": "朱古力 (純JS)",
+      "type": 3,
+      "api": "最新最穩，4K直連",
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/朱古力.js"
+    },
+    {
+      "key": "drpy_js_MissAV",
+      "name": "MissAV (純JS)",
+      "type": 3,
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/MissAV.js"
+    },
+    {
+      "key": "drpy_js_18AV",
+      "name": "18AV (純JS)",
+      "type": 3,
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/18AV.js"
+    },
+    {
+      "key": "drpy_js_Jable",
+      "name": "Jable (純JS)",
+      "type": 3,
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/Jable.js"
+    },
+    {
+      "key": "drpy_js_Supjav",
+      "name": "Supjav (純JS)",
+      "type": 3,
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/Supjav.js"
+    },
+    {
+      "key": "drpy_js_91porn",
+      "name": "91porn (純JS)",
+      "type": 3,
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/91porn.js"
+    },
+    {
+      "key": "drpy_js_AVJB",
+      "name": "AVJB (純JS)",
+      "type": 3,
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/AVJB.js"
+    },
+    {
+      "key": "drpy_js_麻豆",
+      "name": "麻豆傳媒 (純JS)",
+      "type": 3,
+      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/麻豆.js"
+    }
+  ],
+
+  "parses": [
+    {"name":"聚合","type":3,"url":"Demo"},
+    {"name":"OK嗅探","type":0,"url":"https://okjx.cc/?url="},
+    {"name":"Web嗅探","type":3,"url":"Web"}
+  ],
+
+  "flags": ["youku","qq","iqiyi","qiyi","mgtv","letv","pptv","bilibili","wasu","bilibili"],
+
   "lives": [
     {
       "name": "成人直播",
       "type": 0,
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/adult.txt"
+      "url": "https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/adult.txt",
+      "playerType": 1,
+      "epg": "https://epg.112114.xyz/?ch={name}&date={date}",
+      "logo": "https://epg.112114.xyz/logo/{name}.png"
     }
   ],
-  "categories": ["福利", "成人"],
-  "sites": [
-    // Jable（你說的正常源，保持原樣）
-    {"key": "Jable", "name": "🐞Jable(正常)", "type": 3, "api": "csp_Jable", "searchable": 1, "quickSearch": 1, "filterable": 1},
 
-    // 修復版 MissAV（加輪換域名 + 最新 lazy 直鏈）
-    {"key": "MissAV_fix", "name": "🐞MissAV(修復)", "type": 3, "api": "csp_Miss", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": "host:'https://missav.ws';host_backup:['https://missav.ai','https://missav.live','https://missav.com'];lazy:$js.toString(()=>{let html=request(input,{headers:{Referer:input,'User-Agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15'}});let src=html.match(/source src=[\"']([^\"']+)[\"']/i)?.[1]||html.match(/video_src\\s*:\\s*[\"']([^\"']+)[\"']/i)?.[1];if(src){if(src.startsWith('//'))src='https:'+src;input={jx:0,parse:0,url:src};}else{input={jx:0,parse:1,url:input};}})"},
-
-    // 修復版 18AV（加防盜鏈 Referer + 最新選擇器）
-    {"key": "18AV_fix", "name": "🐞18AV(修復)", "type": 3, "api": "csp_Eighteen", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": "host:'https://18av.mm-cg.com';headers:{'User-Agent':'MOBILE_UA','Referer':'https://18av.mm-cg.com/'};;lazy:$js.toString(()=>{let html=request(input,{headers:{'Referer':input,'User-Agent':'MOBILE_UA'}});let src=html.match(/<source\\s+src=[\"'](.*?)[\"']/i)||html.match(/player_aaaa=\\s*\\{[\\s\\S]*?url:[\\s]*[\"'](.*?)[\"']/i);if(src&&src[1]){let url=src[1].startsWith('http')?src[1]:'https://18av.mm-cg.com'+src[1];input={parse:0,url:url,jx:0};}else{input={parse:1,url:input,jx:0};}})"},
-
-    // 修復版 猪AV（加备用域名 + 直鏈解析）
-    {"key": "pigav_fix", "name": "🐞猪AV(修復)", "type": 3, "api": "csp_Pigav", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": "host:'https://pigav.com';host_backup:['https://pigav.tv','https://pigav1.com'];headers:{'User-Agent':'MOBILE_UA','Referer':'https://pigav.com/'};;lazy:$js.toString(()=>{let html=request(input,{headers:{'Referer':input,'User-Agent':'MOBILE_UA'}});let src=html.match(/<source\\s+src=[\"'](.*?)[\"']/i)||html.match(/src\\s*:[\\s]*[\"'](.*?)[\"']/i);if(src&&src[1]){input={parse:0,url:src[1],jx:0};}else{input={parse:1,url:input,jx:0};}})"},
-
-    // Supjav（如果也掛了，這版加了 token 支援）
-    {"key": "Supjav_fix", "name": "🐞Supjav(修復)", "type": 3, "api": "csp_Supjav", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": "host:'https://supjav.com';headers:{'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Referer':'https://supjav.com/'};;timeout:10000"},
-
-    // 91麻豆（XML 源，穩定不掛）
-    {"name": "91麻豆", "key": "0091麻豆", "type": 1, "api": "https://91md.me/api.php/provide/vod/", "searchable": 1, "quickSearch": 1, "filterable": 1},
-
-    // T4 聚合搜（萬一單源掛了，用這個搜全網）
-    {"key": "t4_搜片", "name": "🔍T4搜片", "type": 4, "api": "https://t4.secan.icu/vod?sites=all&timeout=5", "searchable": 0, "quickSearch": 0, "filterable": 1}
-  ],
-  "parses": [
-    {"name": "聚合", "type": 3, "url": "Demo"},
-    {"name": "OKjx嗅探", "type": 0, "url": "https://okjx.cc/?url="},
-    {"name": "可與", "type": 1, "url": "http://newjiexi.gotka.top/keyu3.php?url="}
-  ],
-  "flags": ["m3u8", "mp4"],
-  "rules": [
-    {"host": "*", "rule": ["jable.tv", ".m3u8"]},
-    {"host": "*", "rule": ["http((?!http).){12,}?\\.(m3u8|mp4)"]}
-  ],
-  "ads": ["google-analytics.com", "cnzz.com", "baidu.com"]
+  "wallpaper": "https://t.mwm.moe/ycy",
+  "ads": ["googletagmanager.com","google-analytics.com","cnzz.com"]
 }
