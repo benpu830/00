@@ -1,83 +1,92 @@
 {
-  "sites": [
-    {
-      "key": "drpy_js_朱古力",
-      "name": "朱古力 (純JS)",
-      "type": 3,
-      "api": "最新最穩，4K直連",
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/朱古力.js"
-    },
-    {
-      "key": "drpy_js_MissAV",
-      "name": "MissAV (純JS)",
-      "type": 3,
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/MissAV.js"
-    },
-    {
-      "key": "drpy_js_18AV",
-      "name": "18AV (純JS)",
-      "type": 3,
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/18AV.js"
-    },
-    {
-      "key": "drpy_js_Jable",
-      "name": "Jable (純JS)",
-      "type": 3,
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/Jable.js"
-    },
-    {
-      "key": "drpy_js_Supjav",
-      "name": "Supjav (純JS)",
-      "type": 3,
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/Supjav.js"
-    },
-    {
-      "key": "drpy_js_91porn",
-      "name": "91porn (純JS)",
-      "type": 3,
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/91porn.js"
-    },
-    {
-      "key": "drpy_js_AVJB",
-      "name": "AVJB (純JS)",
-      "type": 3,
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/AVJB.js"
-    },
-    {
-      "key": "drpy_js_麻豆",
-      "name": "麻豆傳媒 (純JS)",
-      "type": 3,
-      "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
-      "ext": "https://ghproxy.com/https://raw.githubusercontent.com/benpu830/00/main/js/麻豆.js"
-    }
-  ],
-
-  "parses": [
-    {"name":"聚合","type":3,"url":"Demo"},
-    {"name":"OK嗅探","type":0,"url":"https://okjx.cc/?url="},
-    {"name":"Web嗅探","type":3,"url":"Web"}
-  ],
-
-  "flags": ["youku","qq","iqiyi","qiyi","mgtv","letv","pptv","bilibili","wasu","bilibili"],
-
+  "spider": "",
+  "wallpaper": "https://t.mwm.moe/ycy",
   "lives": [
     {
       "name": "成人直播",
       "type": 0,
-      "url": "https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/adult.txt",
-      "playerType": 1,
-      "epg": "https://epg.112114.xyz/?ch={name}&date={date}",
-      "logo": "https://epg.112114.xyz/logo/{name}.png"
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/adult.txt"
     }
   ],
+  "categories": ["成人", "福利"],
+  "sites": [
+    // MissAV 修復版（基於 qist/tvbox 最新規則 + 輪換域名）
+    {
+      "key": "MissAV_new",
+      "name": "MissAV (2025修復)",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "var rule = { title: 'MissAV', host: 'https://missav.ws', host_backup: ['https://missav.ai', 'https://missav.live', 'https://missav.com'], homeUrl: '/en', url: '/en/fyclass?page=fypage', searchUrl: '/en/search/**?page=fypage', headers: { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile Safari/604.1', 'Referer': 'https://missav.ws/' }, timeout: 10000, class_name: 'Recent&New&Uncensored&SIRO&LUXU&FC2&Madou&Monthly', class_url: 'recent&new&uncensored&siro&luxu&fc2&madou&monthly', limit: 30, play_parse: true, lazy: $js.toString(() => { let html = request(input, {headers: {Referer: input, 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15'}}); let src = html.match(/<source src=[\"']([^\"']+)[\"']/i)?.[1] || html.match(/data-src=[\"']([^\"']+m3u8)[\"']/i)?.[1]; if (src) { input = {jx: 0, parse: 0, url: src.startsWith('http') ? src : 'https://missav.ws' + src}; } else { input = {jx: 0, parse: 1, url: input}; } }), 一级: '.item-list a;img&&alt;img&&data-src;.duration&&Text;a&&href', 二级: {title: 'h1&&Text', img: '.poster&&src', desc: '.info&&Text'}, 搜索: '.item-list a;img&&alt;img&&data-src;.duration&&Text;a&&href' };"
+    },
 
-  "wallpaper": "https://t.mwm.moe/ycy",
-  "ads": ["googletagmanager.com","google-analytics.com","cnzz.com"]
+    // 18AV 修復版（加最新選擇器 + 中文字幕支援）
+    {
+      "key": "18AV_new",
+      "name": "18AV (2025修復)",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "var rule = { title: '18AV', host: 'https://18av.mm-cg.com', homeUrl: '/zh/', url: '/zh/fyclass/all/fypage.html', searchUrl: '/zh/search/**/fypage.html', headers: {'User-Agent': 'MOBILE_UA', 'Referer': 'https://18av.mm-cg.com/'}, timeout: 12000, class_name: '最近更新&無碼&中文字幕&巨乳&人妻', class_url: 'all&uncensored&subtitle&bigbreast&wife', limit: 24, play_parse: true, lazy: $js.toString(() => { let html = request(input, {headers: {'Referer': input, 'User-Agent': 'MOBILE_UA'}}); let src = html.match(/<source\\s+src=[\"'](.*?)[\"']/i)?.[1] || html.match(/url:\\s*[\"'](.*?)[\"']/i)?.[1]; if (src) { input = {parse: 0, url: src.startsWith('http') ? src : 'https://18av.mm-cg.com' + src, jx: 0}; } else { input = {parse: 1, url: input, jx: 0}; } }), 一级: '.post-item a&&title;img&&data-src;.label&&Text;a&&href', 二级: {title: 'h1&&Text', img: 'img&&src', desc: '.meta&&Text'}, 搜索: '.post-item a&&title;img&&data-src;.label&&Text;a&&href' };"
+    },
+
+    // Jable 修復版（既然你說正常，但加防掛機制）
+    {
+      "key": "Jable_new",
+      "name": "Jable (2025修復)",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "var rule = { title: 'Jable', host: 'https://jable.tv', homeUrl: '/', url: '/categories/fypage', searchUrl: '/search/**', headers: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}, timeout: 8000, class_name: '最新&熱門&無碼&亞洲&歐美', class_url: 'recent&popular&uncensored&asian&western', limit: 30, play_parse: true, lazy: $js.toString(() => { let html = request(input, {headers: {'Referer': input}}); let src = html.match(/<source src=[\"']([^\"']+m3u8)[\"']/i)?.[1]; if (src) { input = {jx: 0, parse: 0, url: src}; } else { input = {jx: 0, parse: 1, url: input}; } }), 一级: '.video-card a;img&&src;.duration&&Text;a&&href', 二级: {title: 'h1&&Text', img: '.poster&&src', desc: '.tags&&Text'}, 搜索: '.video-card a;img&&src;.duration&&Text;a&&href' };"
+    },
+
+    // 額外加兩個穩定源（91 + 麻豆，從搜尋結果挖出）
+    {
+      "key": "91_md",
+      "name": "91麻豆 (穩定)",
+      "type": 1,
+      "api": "https://91md.me/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "madou",
+      "name": "麻豆傳媒 (穩定)",
+      "type": 1,
+      "api": "http://madouse.la/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+
+    // T4 全網聚合搜（萬一單源掛，用這個搜番号）
+    {
+      "key": "t4_search",
+      "name": "🔍T4全網搜",
+      "type": 4,
+      "api": "https://t4.secan.icu/vod?sites=all&timeout=10",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 1
+    }
+  ],
+  "parses": [
+    {"name": "聚合", "type": 3, "url": "Demo"},
+    {"name": "OKJX", "type": 0, "url": "https://okjx.cc/?url="},
+    {"name": "Web", "type": 3, "url": "Web"}
+  ],
+  "flags": ["m3u8", "mp4", "qq", "腾讯"],
+  "rules": [
+    {"host": "*", "rule": [".m3u8"]},
+    {"host": "missav.ws", "rule": ["data-src"]},
+    {"host": "jable.tv", "rule": ["source src"]}
+  ],
+  "ads": ["google-analytics.com", "cnzz.com", "baidu.com"]
 }
